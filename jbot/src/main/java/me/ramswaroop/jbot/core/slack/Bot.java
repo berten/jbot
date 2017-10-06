@@ -387,6 +387,7 @@ public abstract class Bot {
     }
 
     private StandardWebSocketClient client() {
+
         return new StandardWebSocketClient();
     }
 
@@ -398,8 +399,7 @@ public abstract class Bot {
      * Entry point where the web socket connection starts
      * and after which your bot becomes live.
      */
-    @PostConstruct
-    private void startWebSocketConnection() {
+    public void startWebSocketConnection() {
         slackService.startRTM(getSlackToken());
         if (slackService.getWebSocketUrl() != null) {
             WebSocketConnectionManager manager = new WebSocketConnectionManager(client(), handler(), slackService.getWebSocketUrl());
