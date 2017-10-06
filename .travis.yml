@@ -4,3 +4,6 @@ jdk:
 sudo: false
 install: true
 script: mvn clean install -Dmaven.javadoc.skip=true -B -V
+cache:
+  directories:
+  - $HOME/.m2
